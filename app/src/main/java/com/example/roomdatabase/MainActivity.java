@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     int mPersonId;
     Intent intent;
     private AppDatabase mDb;
+    private Aquarium myAquarium;
 
 
     @Override
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        myAquarium = new Aquarium(this.getApplication(),
+                getLifecycle());
         initViews();
         mDb = AppDatabase.getInstance(getApplicationContext());
         intent = getIntent();
